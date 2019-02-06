@@ -10,7 +10,7 @@ cd "${snowblossom_top}"
 bazel build --package_path %workspace%:snowblossom :SnowBlossomClient_deploy.jar
 
 rm -f "${build_dir}/SnowBlossomClient_android.jar"
-rm -rf "${build_dir}/jar"
+rm -rf "${build_dir}/"*
 mkdir -p "${build_dir}/jar"
 cd "${build_dir}"
 

@@ -14,7 +14,7 @@ example_configs="${snowblossom_top}/example/configs"
 # display environment (for debugging purposes)
 env
 
-rm -rf "${stage_dir}" "${build_dir}/${name}"
+rm -rf "${stage_dir}" "${build_dir}/"*
 
 # build
 cd "${snowblossom_top}"
