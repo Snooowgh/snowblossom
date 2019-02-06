@@ -1,13 +1,7 @@
 #!/bin/sh
-# requires: git, zip
-
-# 1. create new release git tag --annotate 1.0.0 #(or create on github and git pull)
-# 2. run this to create standalone deployment
-# 3. Remember to push tags/release to github and upload the deployment
 
 # exit if anything fails
 set -eu
-
 
 snowblossom_top=$(git rev-parse --show-toplevel)
 version=`git describe`
@@ -70,7 +64,8 @@ cp -r "${snowblossom_top}/example/systemd" "${stage_dir}/linux/"
 
 #cd ../
 
-zip -rl9 "${build_dir}/${name}.zip" "${stage_dir}"
+cd "${build_dir}" "${name}"
+zip -rl9 "${name}.zip" "${name}"
 echo
 echo "Release zip created at ${build_dir}/${name}.zip"
 echo

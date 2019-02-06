@@ -29,16 +29,15 @@ git clone "https://github.com/snowblossomcoin/snowblossom.git" source
 
 # build
 cd source
-bazel build :all
+sh build.sh
 
 # setup simple helpful run scrips?
 cd "$snowblossom_home"
 cp -r source/example/configs ./
 echo '#!/bin/bash\nsource/bazel-bin/SnowBlossomNode configs/node.conf' > node.sh
-echo '#!/bin/bash\nsource/bazel-bin/SnowBlossomClient configs/client.conf \$1 \$2 \$3' > client.sh
+echo '#!/bin/bash\nsource/bazel-bin/SnowBlossomClient configs/client.conf \"$@1"' > client.sh
 echo '#!/bin/bash\nsource/bazel-bin/SnowBlossomMiner configs/miner.conf' > miner.sh
 chmod +x *.sh
-mkdir -p "logs"
 EOF
 
 cat <<EOF

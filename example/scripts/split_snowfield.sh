@@ -2,7 +2,7 @@
 
 snow_dir=$1
 output_chunk_dir=$2
-snowfield=$(basename -- "${snowfield_dir}"
+snowfield=$(basename -- "${snow_dir}")
 
 if [ ! -d "${snow_dir}" ]; then
     echo "Directory ${snow_dir} not found."
@@ -23,7 +23,7 @@ for i in $(seq 0 127); do
 
     # left zero pad number
     while [ ${#chunk} -lt 4 ]; do
-        name="0${chunk}"
+        chunk="0${chunk}"
     done
     echo "${chunk}"
 
